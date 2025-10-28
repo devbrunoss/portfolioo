@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruno S. | Dev & Designer - Sites Premium</title>
+    <title>Bruno S. | Dev & Designer - Sites e sistemas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -39,31 +39,7 @@
             color: var(--branco);
             line-height: 1.6;
             overflow-x: hidden;
-            cursor: none;
-        }
-
-        /* Cursor Personalizado */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--dourado);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transition: transform 0.2s ease;
-        }
-
-        .cursor-follower {
-            width: 8px;
-            height: 8px;
-            background: var(--ciano);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: transform 0.1s ease;
+            cursor: auto;
         }
 
         /* Header Glassmorphism */
@@ -140,7 +116,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--preto) 0%, var(--preto-suave) 100%);
+            padding: 0 20px;
         }
 
         .hero::before {
@@ -309,9 +285,18 @@
 
         .sobre-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
+            grid-template-columns: 1fr;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .sobre-text p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
         }
 
         .sobre-img {
@@ -767,28 +752,16 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        @media (max-width: 768px) {
+    .sobre-text p {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+}
     </style>
 </head>
 <body>
-    <!-- Cursor Personalizado -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">Bruno S.</div>
-            <nav>
-                <ul>
-                    <li><a href="#hero">Início</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#portfolio">Portfólio</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
@@ -800,7 +773,7 @@
                     <i class="fas fa-eye"></i>
                     Ver Portfólio
                 </a>
-                <a href="#contato" class="btn btn-secondary">
+                <a href="#servicos" class="btn btn-secondary">
                     <i class="fas fa-paper-plane"></i>
                     Solicitar Orçamento
                 </a>
@@ -813,11 +786,6 @@
         <div class="container">
             <h2>Quem Sou</h2>
             <div class="sobre-content">
-                <div class="sobre-img">
-                    <div class="img-placeholder">
-                        <i class="fas fa-user" style="font-size: 4rem;"></i>
-                    </div>
-                </div>
                 <div class="sobre-text">
                     <p>Desenvolvedor e Designer especializado em criar experiências digitais únicas para pequenas marcas e empreendedores. Combino técnicas modernas de desenvolvimento com princípios sólidos de design para entregar projetos que não só impressionam visualmente, mas também convertem.</p>
                     <div class="habilidades-grid">
@@ -1005,7 +973,7 @@
                         StudioN Barbearia
                     </div>
                     <div class="portfolio-overlay">
-                        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                        <a href="projects/studion.html" class="btn btn-primary">Ver Detalhes</a>
                     </div>
                 </div>
                 <div class="portfolio-item hidden">
@@ -1013,7 +981,7 @@
                         Agência Criativa
                     </div>
                     <div class="portfolio-overlay">
-                        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                        <a href="projects/agenciax.html" class="btn btn-primary">Ver Detalhes</a>
                     </div>
                 </div>
                 <div class="portfolio-item hidden">
@@ -1021,7 +989,7 @@
                         Landing Page Fitness
                     </div>
                     <div class="portfolio-overlay">
-                        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                        <a href="projects/fitpage.html" class="btn btn-primary">Ver Detalhes</a>
                     </div>
                 </div>
                 <div class="portfolio-item hidden">
@@ -1029,7 +997,7 @@
                         Loja Minimal
                     </div>
                     <div class="portfolio-overlay">
-                        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                        <a href="projects/minimal.html" class="btn btn-primary">Ver Detalhes</a>
                     </div>
                 </div>
                 <div class="portfolio-item hidden">
@@ -1037,7 +1005,7 @@
                         Restaurante Gourmet
                     </div>
                     <div class="portfolio-overlay">
-                        <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                        <a href="projects/restaurante.html" class="btn btn-primary">Ver Detalhes</a>
                     </div>
                 </div>
             </div>
@@ -1166,20 +1134,6 @@
     </footer>
 
     <script>
-        // Cursor Personalizado
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-
         // Scroll Animations
         const observerOptions = {
             threshold: 0.1,
