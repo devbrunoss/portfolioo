@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruno S. | Dev & Designer - Sites e sistemas</title>
+    <title>Bruno S. | Dev & Designer - Sites e Sistemas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -116,7 +116,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            padding: 0 20px;
+            background: linear-gradient(135deg, var(--preto) 0%, var(--preto-suave) 100%);
         }
 
         .hero::before {
@@ -759,6 +759,39 @@
         padding: 0 10px;
     }
 }
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 0 10px;
+    }
+
+    .hero-content {
+        max-width: 90%;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+
+    .hero p {
+        font-size: clamp(1rem, 4.5vw, 1.2rem);
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+}
+
     </style>
 </head>
 <body>
