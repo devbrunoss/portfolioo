@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière Store | Design que ilumina o seu espaço</title>
+    <meta name="description" content="Produtos de decoração e lifestyle com estética limpa e funcional. Lumière Store - onde menos é mais.">
+    <meta name="keywords" content="decoração, lifestyle, minimalista, design, móveis, luminárias, cerâmicas">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --beige: #faf7f2;
+            --accent-beige: #d4c8b0;
+            --black: #222222;
+            --gray: #888888;
+            --transition: all 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Tipografia */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--black);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--gray);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-beige);
+            color: var(--black);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--black);
+            color: var(--black);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+        
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--light-gray);
+            border-top: 3px solid var(--black);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: transparent;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        
+        .navbar.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--black);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-icons a {
+            margin-left: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-beige);
+            color: var(--black);
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 500px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 0.5s;
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 80%;
+            background-color: var(--light-gray);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1s;
+        }
+        
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Seções gerais */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        /* Produtos em destaque */
+        .featured-products {
+            background-color: var(--white);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border: 1px solid #eee;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .product-image {
+            height: 250px;
+            background-color: var(--light-gray);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .product-info {
+            padding: 0 20px 20px;
+        }
+        
+        .product-price {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        
+        /* Categorias */
+        .categories {
+            background-color: var(--white);
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .category-card {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-image {
+            width: 100%;
+            height: 100%;
+            background-color: var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .category-card:hover .category-image {
+            transform: scale(1.05);
+        }
+        
+        .category-name {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        /* Sobre */
+        .about {
+            background-color: var(--beige);
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image {
+            height: 500px;
+            background-color: var(--light-gray);
+        }
+        
+        /* Galeria */
+        .gallery {
+            background-color: var(--white);
+        }
+        
+        .masonry-grid {
+            columns: 3;
+            column-gap: 30px;
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            background-color: var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .masonry-item:hover .gallery-image {
+            transform: scale(1.02);
+        }
+        
+        /* Benefícios */
+        .benefits {
+            background-color: var(--white);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .benefit-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+        
+        /* Promoção */
+        .promotion {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .promotion h2 {
+            margin-bottom: 20px;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--beige);
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .newsletter-btn {
+            padding: 15px 30px;
+            background-color: var(--black);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: var(--white);
+            padding: 60px 0 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-beige);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .category-card {
+                height: 300px;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-image {
+                height: 400px;
+            }
+            
+            .masonry-grid {
+                columns: 2;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                height: 80vh;
+            }
+            
+            .hero-content {
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .masonry-grid {
+                columns: 1;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">Lumière Store</a>
+            
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#featured">Produtos</a></li>
+                <li><a href="#categories">Categorias</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Design que ilumina o seu espaço.</h1>
+                <p>Produtos de decoração e lifestyle com estética limpa e funcional.</p>
+                <a href="#featured" class="btn btn-primary">Explorar Coleção</a>
+            </div>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <!-- Produtos em Destaque -->
+    <section id="featured" class="featured-products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Coleção Principal</h2>
+                <p>Peças selecionadas para transformar seu ambiente</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Luminária Aurora</h3>
+                        <p>Design minimalista em aço escovado</p>
+                        <div class="product-price">R$ 349,90</div>
+                        <a href="#" class="btn btn-outline">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Vaso Linear</h3>
+                        <p>Cerâmica artesanal com acabamento suave</p>
+                        <div class="product-price">R$ 189,90</div>
+                        <a href="#" class="btn btn-outline">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Mesa Lateral Nórdica</h3>
+                        <p>Madeira de reflorestamento com design clean</p>
+                        <div class="product-price">R$ 429,90</div>
+                        <a href="#" class="btn btn-outline">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Cadeira Essence</h3>
+                        <p>Estrutura em carvalho com estofamento em linho</p>
+                        <div class="product-price">R$ 799,90</div>
+                        <a href="#" class="btn btn-outline">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Poltrona Flow</h3>
+                        <p>Design ergonômico com linhas suaves</p>
+                        <div class="product-price">R$ 1.249,90</div>
+                        <a href="#" class="btn btn-outline">Ver Detalhes</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Abajur Geo</h3>
+                        <p>Formas geométricas com luz difusa</p>
+                        <div class="product-price">R$ 279,90</div>
+                        <a href="#" class="btn btn-outline">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorias -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore por Categoria</h2>
+                <p>Descubra peças que combinam com seu estilo</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-image"></div>
+                    <div class="category-name">Luminárias</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-image"></div>
+                    <div class="category-name">Cerâmicas</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-image"></div>
+                    <div class="category-name">Móveis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="about" class="about">
+        <div class="container about-container">
+            <div class="about-image"></div>
+            <div class="about-content">
+                <h2>Sobre a Lumière</h2>
+                <p>Na Lumière, acreditamos que menos é mais. Cada detalhe importa — do material à textura, da forma à função.</p>
+                <p>Nossa missão é criar produtos que iluminam não apenas espaços, mas também a experiência de viver neles. Combinamos design atemporal com funcionalidade para oferecer peças que se adaptam à sua vida.</p>
+                <a href="#" class="btn btn-outline">Conheça Nossa História</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Inspiração Lumière</h2>
+                <p>Veja nossos produtos em ambientes reais</p>
+            </div>
+            
+            <div class="masonry-grid">
+                <div class="masonry-item">
+                    <div class="gallery-image" style="height: 300px;"></div>
+                </div>
+                <div class="masonry-item">
+                    <div class="gallery-image" style="height: 450px;"></div>
+                </div>
+                <div class="masonry-item">
+                    <div class="gallery-image" style="height: 350px;"></div>
+                </div>
+                <div class="masonry-item">
+                    <div class="gallery-image" style="height: 400px;"></div>
+                </div>
+                <div class="masonry-item">
+                    <div class="gallery-image" style="height: 320px;"></div>
+                </div>
+                <div class="masonry-item">
+                    <div class="gallery-image" style="height: 380px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Frete Grátis</h3>
+                    <p>Para compras acima de R$200 em todo o Brasil</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Pagamento Seguro</h3>
+                    <p>Seus dados protegidos com criptografia avançada</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Design Sustentável</h3>
+                    <p>Materiais ecológicos e processos responsáveis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promoção -->
+    <section class="promotion">
+        <div class="container">
+            <h2>Coleção 2025 com até 40% off</h2>
+            <p>Edição limitada | Oferta por tempo determinado</p>
+            <a href="#" class="btn btn-secondary">Comprar Agora</a>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Receba novidades e lançamentos exclusivos</h2>
+            <p>Inscreva-se para receber inspiração e ofertas especiais</p>
+            
+            <form class="newsletter-form">
+                <input type="email" placeholder="Seu e-mail" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Cadastrar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Lumière Store</div>
+                    <p>Design que ilumina o seu espaço. Produtos de decoração e lifestyle com estética limpa e funcional.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#featured">Produtos</a></li>
+                        <li><a href="#categories">Categorias</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Ajuda</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Entregas</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="mailto:contato@lumiere.com">contato@lumiere.com</a></li>
+                        <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
+                        <li>São Paulo, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Lumière Store. Design by Bruno S.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loader
+        window.addEventListener('load', function() {
+            const loader = document.querySelector('.loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.product-card, .benefit-item');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Update window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

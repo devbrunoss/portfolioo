@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison du Goût | Experiência Gastronômica Inesquecível</title>
+    <meta name="description" content="Restaurante gourmet francês, oferecendo uma experiência culinária única com pratos sofisticados e ambiente requintado.">
+    <meta name="keywords" content="restaurante gourmet, gastronomia francesa, alta cozinha, jantar sofisticado, chef renomado">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset e Variáveis */
+        :root {
+            --preto: #0a0a0a;
+            --vinho: #3d0a1a;
+            --dourado: #c9a96e;
+            --bege: #f7f4ef;
+            --bege-claro: #f9f7f2;
+            --branco: #ffffff;
+            --cinza: #5a5a5a;
+            
+            --fonte-titulo: 'Cormorant Garamond', serif;
+            --fonte-texto: 'DM Sans', sans-serif;
+            
+            --transicao: all 0.4s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--fonte-texto);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--preto);
+            overflow-x: hidden;
+            background-color: var(--branco);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--fonte-titulo);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transicao);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transicao);
+            cursor: pointer;
+        }
+        
+        .btn-dourado {
+            background-color: var(--dourado);
+            color: var(--preto);
+            border: 1px solid var(--dourado);
+        }
+        
+        .btn-dourado:hover {
+            background-color: transparent;
+            color: var(--dourado);
+        }
+        
+        .btn-borda-dourada {
+            background-color: transparent;
+            color: var(--dourado);
+            border: 1px solid var(--dourado);
+        }
+        
+        .btn-borda-dourada:hover {
+            background-color: var(--dourado);
+            color: var(--preto);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-dourado {
+            color: var(--dourado);
+        }
+        
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+        
+        /* Cursor Personalizado */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--dourado);
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.2s ease;
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transicao);
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--fonte-titulo);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--dourado);
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--branco);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--dourado);
+            transition: var(--transicao);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--branco);
+            font-size: 24px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+            background-size: cover;
+            transform: scale(1.1);
+            transition: transform 0.3s ease-out;
+            z-index: -2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(61, 10, 26, 0.5));
+            z-index: -1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: var(--branco);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Sobre */
+        .sobre {
+            background-color: var(--bege);
+        }
+        
+        .sobre-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .sobre-imagem {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sobre-imagem img {
+            width: 100%;
+            height: auto;
+            transition: var(--transicao);
+        }
+        
+        .sobre-imagem:hover img {
+            transform: scale(1.05);
+        }
+        
+        .sobre-conteudo h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--vinho);
+        }
+        
+        .sobre-conteudo p {
+            margin-bottom: 20px;
+            color: var(--cinza);
+        }
+        
+        /* Menu */
+        .menu {
+            background-color: var(--preto);
+            background-image: url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .menu-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 10, 0.85);
+        }
+        
+        .menu-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .menu-titulo {
+            color: var(--dourado);
+            font-size: 3rem;
+            margin-bottom: 50px;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .menu-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: var(--transicao);
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--dourado);
+            box-shadow: 0 10px 25px rgba(201, 169, 110, 0.2);
+        }
+        
+        .menu-card-imagem {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .menu-card-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicao);
+        }
+        
+        .menu-card:hover .menu-card-imagem img {
+            transform: scale(1.1);
+        }
+        
+        .menu-card-conteudo {
+            padding: 20px;
+        }
+        
+        .menu-card-titulo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .menu-card-nome {
+            font-family: var(--fonte-titulo);
+            font-size: 1.5rem;
+            color: var(--dourado);
+        }
+        
+        .menu-card-preco {
+            font-family: var(--fonte-titulo);
+            font-size: 1.2rem;
+            color: var(--dourado);
+        }
+        
+        .menu-card-descricao {
+            color: var(--branco);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .menu-botoes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* Chef */
+        .chef {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .chef-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+        
+        .chef-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.9) 40%, transparent);
+            z-index: -1;
+        }
+        
+        .chef-conteudo {
+            max-width: 600px;
+            color: var(--branco);
+            padding: 40px;
+            background-color: rgba(10, 10, 10, 0.7);
+            border-left: 3px solid var(--dourado);
+        }
+        
+        .chef-nome {
+            font-size: 2.5rem;
+            color: var(--dourado);
+            margin-bottom: 10px;
+        }
+        
+        .chef-descricao {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Galeria */
+        .galeria {
+            background-color: var(--bege-claro);
+        }
+        
+        .galeria-titulo {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--vinho);
+            margin-bottom: 50px;
+        }
+        
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 15px;
+        }
+        
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicao);
+        }
+        
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .galeria-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transicao);
+        }
+        
+        .galeria-item:hover .galeria-overlay {
+            opacity: 1;
+        }
+        
+        .galeria-nome {
+            color: var(--dourado);
+            font-family: var(--fonte-titulo);
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        /* Depoimentos */
+        .depoimentos {
+            background-color: var(--vinho);
+            color: var(--branco);
+        }
+        
+        .depoimentos-titulo {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dourado);
+            margin-bottom: 50px;
+        }
+        
+        .depoimentos-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .depoimento {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .depoimento-texto {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .depoimento-texto:before,
+        .depoimento-texto:after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--dourado);
+            position: absolute;
+            opacity: 0.5;
+        }
+        
+        .depoimento-texto:before {
+            top: -20px;
+            left: -20px;
+        }
+        
+        .depoimento-texto:after {
+            bottom: -40px;
+            right: -20px;
+        }
+        
+        .depoimento-autor {
+            font-family: var(--fonte-titulo);
+            font-size: 1.3rem;
+            color: var(--dourado);
+        }
+        
+        .estrelas {
+            color: var(--dourado);
+            margin-bottom: 10px;
+        }
+        
+        .slider-botoes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .slider-botao {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transicao);
+        }
+        
+        .slider-botao.ativo {
+            background-color: var(--dourado);
+        }
+        
+        /* Reservas */
+        .reservas {
+            background-color: var(--bege-claro);
+        }
+        
+        .reservas-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .reservas-titulo {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--vinho);
+            margin-bottom: 20px;
+        }
+        
+        .reservas-descricao {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--cinza);
+        }
+        
+        .formulario-reserva {
+            background-color: var(--branco);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-grupo {
+            margin-bottom: 20px;
+        }
+        
+        .form-grupo label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--preto);
+        }
+        
+        .form-grupo input,
+        .form-grupo select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: var(--fonte-texto);
+            font-size: 1rem;
+            transition: var(--transicao);
+        }
+        
+        .form-grupo input:focus,
+        .form-grupo select:focus {
+            border-color: var(--dourado);
+            outline: none;
+        }
+        
+        .form-botao {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        /* Localização */
+        .localizacao {
+            padding: 0;
+        }
+        
+        .localizacao-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .mapa {
+            height: 500px;
+        }
+        
+        .mapa iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .info-localizacao {
+            background-color: var(--preto);
+            color: var(--branco);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .info-titulo {
+            font-size: 2rem;
+            color: var(--dourado);
+            margin-bottom: 30px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-icone {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(201, 169, 110, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--dourado);
+        }
+        
+        .redes-sociais {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .rede-social {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(201, 169, 110, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dourado);
+            transition: var(--transicao);
+        }
+        
+        .rede-social:hover {
+            background-color: var(--dourado);
+            color: var(--preto);
+        }
+        
+        /* Rodapé */
+        .rodape {
+            background-color: var(--preto);
+            color: var(--branco);
+            padding: 60px 0 30px;
+        }
+        
+        .rodape-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .rodape-logo {
+            font-family: var(--fonte-titulo);
+            font-size: 2.5rem;
+            color: var(--dourado);
+            margin-bottom: 20px;
+        }
+        
+        .rodape-texto {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0.7;
+            max-width: 600px;
+        }
+        
+        .rodape-direitos {
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.5;
+            margin-top: 30px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .sobre-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .localizacao-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--preto);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transicao);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .chef-conteudo {
+                padding: 30px 20px;
+            }
+            
+            .menu-botoes {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .menu-botoes .btn {
+                width: 100%;
+                max-width: 250px;
+                margin-bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 70px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .sobre-conteudo h2,
+            .menu-titulo,
+            .galeria-titulo,
+            .depoimentos-titulo,
+            .reservas-titulo {
+                font-size: 2rem;
+            }
+            
+            .formulario-reserva {
+                padding: 30px 20px;
+            }
+            
+            .info-localizacao {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cursor Personalizado -->
+    <div class="cursor"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">Maison du Goût</a>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#chef">Chef</a></li>
+                <li><a href="#galeria">Ambientes</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#reservas">Reservas</a></li>
+                <li><a href="#localizacao">Localização</a></li>
+            </ul>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Maison du Goût</h1>
+            <p>Uma experiência gastronômica inesquecível</p>
+            <a href="#menu" class="btn btn-dourado">Ver Menu</a>
+        </div>
+    </section>
+    
+    <!-- Sobre -->
+    <section id="sobre" class="sobre">
+        <div class="container sobre-container">
+            <div class="sobre-imagem">
+                <img src="https://images.unsplash.com/photo-1556909114-4d0d853e5e25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Interior do restaurante">
+            </div>
+            <div class="sobre-conteudo">
+                <h2>Elegância em cada detalhe</h2>
+                <p>Inspirado nas melhores cozinhas europeias, o Maison du Goût une sabor, arte e sofisticação em um só lugar. Cada prato é uma celebração da alta gastronomia.</p>
+                <p>Nossa equipe de chefs renomados trabalha com ingredientes selecionados, técnicas refinadas e uma paixão inigualável pela culinária francesa contemporânea.</p>
+                <p>Em um ambiente cuidadosamente projetado, oferecemos não apenas uma refeição, mas uma experiência sensorial completa que desperta todos os sentidos.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Menu -->
+    <section id="menu" class="menu">
+        <div class="menu-overlay"></div>
+        <div class="container menu-container">
+            <h2 class="menu-titulo text-center">Nosso Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="menu-card-imagem">
+                        <img src="https://images.unsplash.com/photo-1606755962773-d324e3833245?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Filet au Poivre">
+                    </div>
+                    <div class="menu-card-conteudo">
+                        <div class="menu-card-titulo">
+                            <h3 class="menu-card-nome">Filet au Poivre</h3>
+                            <span class="menu-card-preco">R$ 89</span>
+                        </div>
+                        <p class="menu-card-descricao">Filé mignon grelhado com molho de pimenta verde, acompanhado de purê de batata trufado e legumes sautés.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-card-imagem">
+                        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Risotto di Mare">
+                    </div>
+                    <div class="menu-card-conteudo">
+                        <div class="menu-card-titulo">
+                            <h3 class="menu-card-nome">Risotto di Mare</h3>
+                            <span class="menu-card-preco">R$ 72</span>
+                        </div>
+                        <p class="menu-card-descricao">Risotto cremoso com frutos do mar selecionados, açafrão e finalizado com parmesão reggiano.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-card-imagem">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Confit de Canard">
+                    </div>
+                    <div class="menu-card-conteudo">
+                        <div class="menu-card-titulo">
+                            <h3 class="menu-card-nome">Confit de Canard</h3>
+                            <span class="menu-card-preco">R$ 78</span>
+                        </div>
+                        <p class="menu-card-descricao">Perna de pato confit lentamente, crocante por fora e macia por dentro, servida com batatas rústicas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-botoes">
+                <a href="#" class="btn btn-dourado">Ver Cardápio Completo</a>
+                <a href="#reservas" class="btn btn-borda-dourada">Reservar Mesa</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chef -->
+    <section id="chef" class="chef">
+        <div class="chef-bg"></div>
+        <div class="chef-overlay"></div>
+        <div class="container">
+            <div class="chef-conteudo">
+                <h2 class="chef-nome">Chef Anton Bresson</h2>
+                <p class="chef-descricao">Mais de 20 anos de experiência em culinária francesa contemporânea.</p>
+                <p>Formado no prestigiado Institut Paul Bocuse em Lyon, o Chef Bresson já trabalhou em restaurantes estrelados em Paris e Nova York antes de trazer sua expertise para o Brasil.</p>
+                <p>Sua filosofia culinária baseia-se no respeito pelos ingredientes sazonais e na técnica apurada que transforma cada prato em uma obra de arte comestível.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Galeria -->
+    <section id="galeria" class="galeria">
+        <div class="container">
+            <h2 class="galeria-titulo">Nossos Ambientes</h2>
+            <div class="galeria-grid">
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Salão Principal">
+                    <div class="galeria-overlay">
+                        <h3 class="galeria-nome">Salão Principal</h3>
+                    </div>
+                </div>
+                
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1570475735025-6cd1cd5d779a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Adega">
+                    <div class="galeria-overlay">
+                        <h3 class="galeria-nome">Adega</h3>
+                    </div>
+                </div>
+                
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1556909114-4d0d853e5e25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Área VIP">
+                    <div class="galeria-overlay">
+                        <h3 class="galeria-nome">Área VIP</h3>
+                    </div>
+                </div>
+                
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pratos">
+                    <div class="galeria-overlay">
+                        <h3 class="galeria-nome">Nossos Pratos</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="depoimentos">
+        <div class="container">
+            <h2 class="depoimentos-titulo">O Que Dizem Nossos Clientes</h2>
+            <div class="depoimentos-slider">
+                <div class="depoimento">
+                    <div class="estrelas">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="depoimento-texto">Experiência única, atendimento impecável. Cada prato era uma obra de arte e o sabor superou todas as expectativas.</p>
+                    <p class="depoimento-autor">— Mariana S.</p>
+                </div>
+                
+                <div class="slider-botoes">
+                    <div class="slider-botao ativo"></div>
+                    <div class="slider-botao"></div>
+                    <div class="slider-botao"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Reservas -->
+    <section id="reservas" class="reservas">
+        <div class="container">
+            <div class="reservas-container">
+                <h2 class="reservas-titulo">Reserve Sua Mesa</h2>
+                <p class="reservas-descricao">Reserve sua mesa e viva uma noite inesquecível</p>
+                
+                <form class="formulario-reserva">
+                    <div class="form-grupo">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="data">Data</label>
+                        <input type="date" id="data" name="data" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="horario">Horário</label>
+                        <select id="horario" name="horario" required>
+                            <option value="">Selecione um horário</option>
+                            <option value="18:00">18:00</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:00">20:00</option>
+                            <option value="20:30">20:30</option>
+                            <option value="21:00">21:00</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="pessoas">Número de Pessoas</label>
+                        <select id="pessoas" name="pessoas" required>
+                            <option value="">Selecione</option>
+                            <option value="1">1 pessoa</option>
+                            <option value="2">2 pessoas</option>
+                            <option value="3">3 pessoas</option>
+                            <option value="4">4 pessoas</option>
+                            <option value="5">5 pessoas</option>
+                            <option value="6">6 pessoas</option>
+                            <option value="7">7 pessoas</option>
+                            <option value="8">8 pessoas</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-dourado form-botao">Reservar Mesa</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Localização -->
+    <section id="localizacao" class="localizacao">
+        <div class="localizacao-container">
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.097241764601!2d-46.65390522477502!3d-23.563478378797358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1687892345678!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="info-localizacao">
+                <h2 class="info-titulo">Localização</h2>
+                
+                <div class="info-item">
+                    <div class="info-icone">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <p>Av. Paulista, 1234 - Jardins</p>
+                        <p>São Paulo - SP, 01310-100</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icone">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <p>(11) 3456-7890</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icone">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <p>Segunda a Sábado: 18h às 23h</p>
+                        <p>Domingo: 18h às 22h</p>
+                    </div>
+                </div>
+                
+                <div class="redes-sociais">
+                    <a href="#" class="rede-social">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="rede-social">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="rede-social">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container rodape-container">
+            <h2 class="rodape-logo">Maison du Goût</h2>
+            <p class="rodape-texto">Uma experiência gastronômica que transcende o paladar, unindo arte, sabor e sofisticação em cada detalhe.</p>
+            
+            <div class="redes-sociais">
+                <a href="#" class="rede-social">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="rede-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="rede-social">
+                    <i class="fab fa-tripadvisor"></i>
+                </a>
+            </div>
+            
+            <p class="rodape-direitos">© 2025 Maison du Goût — Todos os direitos reservados.<br>Design by Bruno S. | Dev & Designer</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Cursor Personalizado
+        const cursor = document.querySelector('.cursor');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+        });
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Menu Hamburger
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-bg, .menu, .chef-bg');
+            
+            parallaxElements.forEach(el => {
+                const speed = el.dataset.speed || 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Simple Slider for Testimonials
+        const testimonials = [
+            {
+                text: "Experiência única, atendimento impecável. Cada prato era uma obra de arte e o sabor superou todas as expectativas.",
+                author: "Mariana S.",
+                stars: 5
+            },
+            {
+                text: "O melhor jantar da minha vida. A combinação de sabores, texturas e aromas foi simplesmente perfeita.",
+                author: "Eduardo R.",
+                stars: 5
+            },
+            {
+                text: "Ambiente sofisticado, serviço excelente e comida divina. Voltarei com certeza para experimentar outros pratos.",
+                author: "Camila T.",
+                stars: 5
+            }
+        ];
+        
+        let currentTestimonial = 0;
+        const testimonialElement = document.querySelector('.depoimento');
+        const starsElement = document.querySelector('.estrelas');
+        const sliderButtons = document.querySelectorAll('.slider-botao');
+        
+        function updateTestimonial() {
+            const testimonial = testimonials[currentTestimonial];
+            
+            testimonialElement.querySelector('.depoimento-texto').textContent = testimonial.text;
+            testimonialElement.querySelector('.depoimento-autor').textContent = `— ${testimonial.author}`;
+            
+            // Update stars
+            starsElement.innerHTML = '';
+            for (let i = 0; i < testimonial.stars; i++) {
+                starsElement.innerHTML += '<i class="fas fa-star"></i>';
+            }
+            
+            // Update slider buttons
+            sliderButtons.forEach((btn, index) => {
+                btn.classList.toggle('ativo', index === currentTestimonial);
+            });
+        }
+        
+        sliderButtons.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                currentTestimonial = index;
+                updateTestimonial();
+            });
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateTestimonial();
+        }, 5000);
+        
+        // Form Submission
+        const reservationForm = document.querySelector('.formulario-reserva');
+        
+        reservationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simple form validation
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const data = document.getElementById('data').value;
+            const horario = document.getElementById('horario').value;
+            const pessoas = document.getElementById('pessoas').value;
+            
+            if (!nome || !email || !telefone || !data || !horario || !pessoas) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            // In a real application, you would send this data to a server
+            alert(`Obrigado, ${nome}! Sua reserva para ${pessoas} pessoa(s) no dia ${data} às ${horario} foi recebida. Entraremos em contato para confirmação.`);
+            reservationForm.reset();
+        });
+    </script>
+</body>
+</html>
