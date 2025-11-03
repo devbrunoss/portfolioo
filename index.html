@@ -462,14 +462,6 @@
             flex-direction: column;
         }
 
-        .portfolio-item:nth-child(2n) {
-            grid-row: span 2;
-        }
-
-        .portfolio-item:nth-child(3n) {
-            grid-column: span 2;
-        }
-
         .portfolio-item:hover {
             transform: scale(1.05);
             box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
@@ -1769,6 +1761,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     const searchInput = document.getElementById('project-search');
     
+
+    // Mostrar todos os projetos ao carregar
+portfolioItems.forEach(item => {
+  item.style.display = 'block';
+  item.style.opacity = '1';
+  item.style.transform = 'translateY(0)';
+});
+
+
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             // Remove active de todos os botões
@@ -1834,7 +1835,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "Site premium desenvolvido para barbearia de alto padrão, com sistema de agendamento integrado e design sofisticado que reflete a qualidade do estabelecimento.",
             features: ["Sistema de agendamento", "Design responsivo", "Galeria de trabalhos", "Integração WhatsApp", "SEO otimizado"],
             technologies: ["HTML5", "CSS3", "JavaScript", "Vercel"],
-            images: ["assets/studion-1.jpg", "assets/studion-2.jpg", "assets/studion-3.jpg"],
+            images: ["./assets/thumb-studion.png", "./assets/thumb-studion2.png", "./assets/thumb-studion3.png"],
             liveUrl: "https://studion-barbearia.com",
             caseUrl: "projects/studion.html"
         },
@@ -1846,7 +1847,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "E-commerce clean e minimalista focado em conversão, com carrinho de compras simulado e experiência de usuário otimizada.",
             features: ["Carrinho de compras", "Checkout otimizado", "Design responsivo", "Filtros de produtos", "Integração pagamento"],
             technologies: ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
-            images: ["assets/minimal-1.jpg", "assets/minimal-2.jpg"],
+            images: ["./assets/thumb-minimal.png", "./assets/thumb-minimal2.png", "./assets/thumb-minimal3.png"],
             liveUrl: "https://loja-minimal.com",
             caseUrl: "projects/minimal.html"
         },
@@ -1858,7 +1859,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "Site imersivo com efeitos parallax e galeria visual impressionante, criado para transmitir a experiência única do restaurante.",
             features: ["Efeitos parallax", "Galeria de pratos", "Sistema de reservas", "Menu digital", "Design responsivo"],
             technologies: ["HTML5", "CSS3", "JavaScript", "ScrollMagic"],
-            images: ["assets/restaurante-1.jpg", "assets/restaurante-2.jpg"],
+            images: ["./assets/thumb-gourmet.png", "./assets/thumb-gourmet2.png", "./assets/thumb-gourmet3.png"],
             liveUrl: "https://restaurante-gourmet.com",
             caseUrl: "projects/restaurante.html"
         },
@@ -1870,7 +1871,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "Site institucional técnico e moderno para agência digital, com portfólio interativo e sistema de captação de leads.",
             features: ["Portfólio interativo", "Formulário de contato", "Blog integrado", "Design responsivo", "SEO otimizado"],
             technologies: ["HTML5", "CSS3", "JavaScript", "Netlify"],
-            images: ["assets/agencia-1.jpg", "assets/agencia-2.jpg"],
+            images: ["assets/thumb-agencia.png", "assets/thumb-agencia2.png", "assets/thumb-agencia3.png"],
             liveUrl: "https://agencia-criativa.com",
             caseUrl: "projects/agencia.html"
         },
@@ -1882,7 +1883,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "Landing page de alta conversão para academia, com call-to-action estratégico e design que motiva a ação.",
             features: ["CTA otimizado", "Formulário de lead", "Design responsivo", "Animações suaves", "Testes A/B"],
             technologies: ["HTML5", "CSS3", "JavaScript", "Vercel"],
-            images: ["assets/fitness-1.jpg", "assets/fitness-2.jpg"],
+            images: ["assets/thumb-fit.png", "assets/thumb-fit2.png", "assets/thumb-fit3.png"],
             liveUrl: "https://academia-performance.com",
             caseUrl: "projects/fitness.html"
         }
