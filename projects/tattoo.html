@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InkHouse Tattoo Studio - Arte que marca. Estilo que permanece.</title>
+    <meta name="description" content="Estúdio de tatuagem profissional com artistas premiados. Tatuagens únicas, agendamento online e orçamento personalizado.">
+    <meta name="keywords" content="tatuagem, tattoo, estúdio, arte corporal, agendamento, orçamento, realismo, old school, blackwork">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-dark-secondary: #121212;
+            --bg-dark-tertiary: #0f0f0f;
+            --accent-red: #b00;
+            --text-light: #dcdcdc;
+            --text-white: #ffffff;
+            --bg-light: #fafafa;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-red);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        section {
+            padding: 5rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent-red);
+            color: var(--text-white);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #900;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-red);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-red);
+            color: var(--text-white);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--text-white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), url('https://images.unsplash.com/photo-1565058759547-78d9a17670de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            z-index: -1;
+            animation: zoomEffect 20s infinite alternate;
+        }
+
+        @keyframes zoomEffect {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* Sobre o Estúdio */
+        .about {
+            background-color: var(--bg-dark-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h2 {
+            text-align: left;
+        }
+
+        .about-text h2::after {
+            left: 0;
+            transform: none;
+        }
+
+        /* Galeria */
+        .gallery {
+            background-color: var(--bg-dark);
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: transparent;
+            border: 1px solid var(--text-light);
+            color: var(--text-light);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--accent-red);
+            border-color: var(--accent-red);
+            color: var(--text-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(10, 10, 10, 0.9));
+            color: var(--text-white);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--bg-dark-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: var(--text-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        /* Artistas */
+        .artists {
+            background-color: var(--bg-dark-tertiary);
+        }
+
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .artist-card {
+            background-color: var(--bg-dark-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .artist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .artist-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .artist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: grayscale(100%);
+        }
+
+        .artist-card:hover .artist-image img {
+            filter: grayscale(0);
+            transform: scale(1.1);
+        }
+
+        .artist-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .artist-info h3 {
+            color: var(--text-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .artist-specialty {
+            color: var(--accent-red);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Agendamento */
+        .booking {
+            background-color: var(--bg-dark-secondary);
+        }
+
+        .booking-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--bg-dark-tertiary);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-red);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload-btn {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            padding: 12px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .file-upload-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        /* Orçamento */
+        .quote {
+            background-color: var(--bg-light);
+            color: #333;
+        }
+
+        .quote h2 {
+            color: #333;
+        }
+
+        .quote h2::after {
+            background-color: var(--accent-red);
+        }
+
+        .quote-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-form .form-group label {
+            color: #333;
+        }
+
+        .quote-form .form-control {
+            background-color: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        .quote-form .form-control:focus {
+            border-color: var(--accent-red);
+        }
+
+        /* Blog */
+        .blog {
+            background-color: var(--bg-light);
+            color: #333;
+        }
+
+        .blog h2 {
+            color: #333;
+        }
+
+        .blog h2::after {
+            background-color: var(--accent-red);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-meta {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-excerpt {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-link {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .blog-link:hover {
+            gap: 10px;
+        }
+
+        /* Contato */
+        .contact {
+            background-color: var(--bg-dark);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            background-color: var(--accent-red);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            color: var(--text-white);
+            font-size: 1.2rem;
+        }
+
+        .contact-details h3 {
+            color: var(--text-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-red);
+            color: var(--text-white);
+            transform: translateY(-3px);
+        }
+
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo span {
+            color: var(--accent-red);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .footer-text {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Animações */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--bg-dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: var(--text-white);
+                margin: 5px 0;
+                transition: var(--transition);
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .booking-form, .quote-form {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .artists-grid, .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">Ink<span>House</span></a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#gallery">Galeria</a></li>
+            <li><a href="#artists">Artistas</a></li>
+            <li><a href="#booking">Agendamento</a></li>
+            <li><a href="#quote">Orçamento</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Arte que marca. Estilo que permanece.</h1>
+            <p>Tatuagens únicas criadas por artistas que vivem a arte.</p>
+            <div class="hero-buttons">
+                <a href="#booking" class="btn">Agendar sessão</a>
+                <a href="#gallery" class="btn btn-outline">Ver portfólio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre o Estúdio -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1605649487210-6c445f8b7c4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Estúdio InkHouse">
+                </div>
+                <div class="about-text">
+                    <h2>Mais que tatuagens — experiências.</h2>
+                    <p>Fundado em 2015, o InkHouse Tattoo Studio reúne artistas premiados que transformam ideias em arte sobre a pele. Cada traço carrega propósito, técnica e estilo.</p>
+                    <p>Nosso estúdio foi criado com a missão de oferecer não apenas tatuagens de alta qualidade, mas uma experiência completa e personalizada para cada cliente.</p>
+                    <a href="#artists" class="btn">Conheça nossos artistas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Nossa Galeria</h2>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="realismo">Realismo</button>
+                <button class="filter-btn" data-filter="old-school">Old School</button>
+                <button class="filter-btn" data-filter="blackwork">Blackwork</button>
+                <button class="filter-btn" data-filter="minimalista">Minimalista</button>
+                <button class="filter-btn" data-filter="colorida">Colorida</button>
+            </div>
+            <div class="gallery-grid">
+                <!-- Itens da galeria serão inseridos via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal da Galeria -->
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <img id="modal-image" class="modal-image" src="" alt="">
+                <div class="modal-info">
+                    <div>
+                        <h3 id="modal-title"></h3>
+                        <p id="modal-artist"></p>
+                    </div>
+                    <p id="modal-style"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Artistas -->
+    <section id="artists" class="artists">
+        <div class="container">
+            <h2>Nossos Artistas</h2>
+            <div class="artists-grid">
+                <!-- Cards de artistas serão inseridos via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Agendamento -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2>Agende sua Sessão</h2>
+            <form class="booking-form fade-in" id="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nome completo</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Telefone/WhatsApp</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artist">Escolha do artista</label>
+                        <select id="artist" class="form-control" required>
+                            <option value="">Selecione um artista</option>
+                            <!-- Opções serão inseridas via JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Data desejada</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tattoo-type">Tipo de tatuagem</label>
+                        <input type="text" id="tattoo-type" class="form-control" placeholder="Ex: Braço direito, costas, etc." required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reference">Referência (opcional)</label>
+                    <div class="file-upload">
+                        <div class="file-upload-btn">Escolher arquivo</div>
+                        <input type="file" id="reference" accept="image/*">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem adicional</label>
+                    <textarea id="message" class="form-control" placeholder="Descreva sua ideia, tamanho, cores, etc."></textarea>
+                </div>
+                <button type="submit" class="btn">Solicitar agendamento</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Orçamento -->
+    <section id="quote" class="quote">
+        <div class="container">
+            <h2>Quer saber quanto custa sua tatuagem?</h2>
+            <form class="quote-form fade-in" id="quote-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quote-name">Nome</label>
+                        <input type="text" id="quote-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Tamanho da tatuagem</label>
+                        <select id="size" class="form-control" required>
+                            <option value="">Selecione</option>
+                            <option value="pequena">Pequena (até 10cm)</option>
+                            <option value="media">Média (10-20cm)</option>
+                            <option value="grande">Grande (acima de 20cm)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="body-part">Local no corpo</label>
+                        <input type="text" id="body-part" class="form-control" placeholder="Ex: Braço, costas, perna, etc." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="style">Estilo</label>
+                        <select id="style" class="form-control" required>
+                            <option value="">Selecione</option>
+                            <option value="realismo">Realismo</option>
+                            <option value="old-school">Old School</option>
+                            <option value="blackwork">Blackwork</option>
+                            <option value="minimalista">Minimalista</option>
+                            <option value="colorida">Colorida</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="quote-message">Descrição da tatuagem</label>
+                    <textarea id="quote-message" class="form-control" placeholder="Descreva em detalhes sua ideia, elementos, cores, etc." required></textarea>
+                </div>
+                <button type="submit" class="btn">Pedir orçamento</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2>Blog InkHouse</h2>
+            <div class="blog-grid">
+                <!-- Posts do blog serão inseridos via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-content fade-in">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Endereço</h3>
+                            <p>Rua das Artes, 123<br>Centro, São Paulo - SP<br>CEP: 01234-567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telefone / WhatsApp</h3>
+                            <p>(11) 99999-9999</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-mail</h3>
+                            <p>contato@inkhouse.com.br</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Redes Sociais</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098170020698!2d-46.65412332434528!3d-23.56340227878034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1689200000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Ink<span>House</span></div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">Sobre</a>
+                <a href="#gallery">Galeria</a>
+                <a href="#artists">Artistas</a>
+                <a href="#booking">Agendamento</a>
+                <a href="#quote">Orçamento</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contato</a>
+            </div>
+            <p class="footer-text">© 2025 InkHouse Tattoo Studio — Todos os direitos reservados.</p>
+            <p class="footer-text">Design e desenvolvimento por Bruno S.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dados para a galeria
+        const galleryItems = [
+            { 
+                id: 1, 
+                image: 'https://images.unsplash.com/photo-1611284443170-8c0c5d0a1f2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80', 
+                title: 'Leão Realista', 
+                artist: 'Lucas Mendes', 
+                style: 'realismo' 
+            },
+            { 
+                id: 2, 
+                image: 'https://images.unsplash.com/photo-1577985057584-884658c2f78e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80', 
+                title: 'Rosa e Adaga', 
+                artist: 'Ana Silva', 
+                style: 'old-school' 
+            },
+            { 
+                id: 3, 
+                image: 'https://images.unsplash.com/photo-1611284734488-4c8c3c0a8b0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80', 
+                title: 'Padrões Geométricos', 
+                artist: 'Carlos Lima', 
+                style: 'blackwork' 
+            },
+            { 
+                id: 4, 
+                image: 'https://images.unsplash.com/photo-1611284446316-8d7b8b8b8b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80', 
+                title: 'Linhas Simples', 
+                artist: 'Marina Costa', 
+                style: 'minimalista' 
+            },
+            { 
+                id: 5, 
+                image: 'https://images.unsplash.com/photo-1611284446316-8d7b8b8b8b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80', 
+                title: 'Flores Coloridas', 
+                artist: 'Rafael Santos', 
+                style: 'colorida' 
+            },
+            { 
+                id: 6, 
+                image: 'https://images.unsplash.com/photo-1611284446316-8d7b8b8b8b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80', 
+                title: 'Retrato em Preto e Branco', 
+                artist: 'Lucas Mendes', 
+                style: 'realismo' 
+            },
+            { 
+                id: 7, 
+                image: 'https://images.unsplash.com/photo-1611284446316-8d7b8b8b8b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80', 
+                title: 'Ancora Tradicional', 
+                artist: 'Ana Silva', 
+                style: 'old-school' 
+            },
+            { 
+                id: 8, 
+                image: 'https://images.unsplash.com/photo-1611284446316-8d7b8b8b8b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80', 
+                title: 'Mandala Complexa', 
+                artist: 'Carlos Lima', 
+                style: 'blackwork' 
+            }
+        ];
+
+        // Dados para os artistas
+        const artists = [
+            { 
+                id: 1, 
+                name: 'Lucas Mendes', 
+                specialty: 'Realismo', 
+                image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                bio: 'Especialista em realismo há mais de 10 anos, Lucas transforma fotos em tatuagens impressionantes.'
+            },
+            { 
+                id: 2, 
+                name: 'Ana Silva', 
+                specialty: 'Old School', 
+                image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                bio: 'Mestra no estilo tradicional, Ana cria tatuagens atemporais com cores vibrantes e contornos fortes.'
+            },
+            { 
+                id: 3, 
+                name: 'Carlos Lima', 
+                specialty: 'Blackwork', 
+                image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                bio: 'Especializado em blackwork e geométricos, Carlos cria padrões complexos e harmoniosos.'
+            },
+            { 
+                id: 4, 
+                name: 'Marina Costa', 
+                specialty: 'Minimalista', 
+                image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                bio: 'Com traços delicados e precisos, Marina transforma ideias simples em tatuagens elegantes.'
+            }
+        ];
+
+        // Dados para o blog
+        const blogPosts = [
+            { 
+                id: 1, 
+                title: 'Cuidados após fazer sua tatuagem', 
+                excerpt: 'Aprenda os cuidados essenciais para garantir a perfeita cicatrização da sua nova tatuagem.', 
+                image: 'https://images.unsplash.com/photo-1611284446316-8d7b8b8b8b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                date: '15 de Maio, 2025'
+            },
+            { 
+                id: 2, 
+                title: 'Tendências de tatuagem em 2025', 
+                excerpt: 'Descubra os estilos e temas que estão em alta no mundo das tatuagens este ano.', 
+                image: 'https://images.unsplash.com/photo-1611284446316-8d7b8b8b8b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                date: '10 de Abril, 2025'
+            },
+            { 
+                id: 3, 
+                title: 'Como escolher o artista certo pra você', 
+                excerpt: 'Dicas importantes para selecionar o tatuador ideal para o seu projeto.', 
+                image: 'https://images.unsplash.com/photo-1611284446316-8d7b8b8b8b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                date: '28 de Março, 2025'
+            }
+        ];
+
+        // Inicialização quando o DOM estiver carregado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Menu mobile
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Populate gallery
+            const galleryGrid = document.querySelector('.gallery-grid');
+            galleryItems.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = `gallery-item ${item.style}`;
+                galleryItem.setAttribute('data-style', item.style);
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>${item.title}</h3>
+                        <p>${item.artist}</p>
+                    </div>
+                `;
+                galleryGrid.appendChild(galleryItem);
+                
+                // Adicionar evento de clique para abrir o modal
+                galleryItem.addEventListener('click', function() {
+                    openModal(item);
+                });
+            });
+
+            // Gallery filters
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover classe active de todos os botões
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Adicionar classe active ao botão clicado
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    const galleryItems = document.querySelectorAll('.gallery-item');
+                    
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-style') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Populate artists
+            const artistsGrid = document.querySelector('.artists-grid');
+            artists.forEach(artist => {
+                const artistCard = document.createElement('div');
+                artistCard.className = 'artist-card fade-in';
+                artistCard.innerHTML = `
+                    <div class="artist-image">
+                        <img src="${artist.image}" alt="${artist.name}">
+                    </div>
+                    <div class="artist-info">
+                        <h3>${artist.name}</h3>
+                        <p class="artist-specialty">${artist.specialty}</p>
+                        <button class="btn btn-outline view-portfolio" data-artist="${artist.id}">Ver Portfólio</button>
+                    </div>
+                `;
+                artistsGrid.appendChild(artistCard);
+            });
+
+            // Populate artist dropdown
+            const artistSelect = document.getElementById('artist');
+            artists.forEach(artist => {
+                const option = document.createElement('option');
+                option.value = artist.id;
+                option.textContent = `${artist.name} - ${artist.specialty}`;
+                artistSelect.appendChild(option);
+            });
+
+            // Populate blog
+            const blogGrid = document.querySelector('.blog-grid');
+            blogPosts.forEach(post => {
+                const blogCard = document.createElement('article');
+                blogCard.className = 'blog-card fade-in';
+                blogCard.innerHTML = `
+                    <div class="blog-image">
+                        <img src="${post.image}" alt="${post.title}">
+                    </div>
+                    <div class="blog-content">
+                        <h3>${post.title}</h3>
+                        <p class="blog-meta">${post.date}</p>
+                        <p class="blog-excerpt">${post.excerpt}</p>
+                        <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                `;
+                blogGrid.appendChild(blogCard);
+            });
+
+            // Form submissions
+            document.getElementById('booking-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Recebemos seu pedido! Entraremos em contato para confirmar sua sessão.');
+                this.reset();
+            });
+
+            document.getElementById('quote-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Obrigado pelo seu interesse! Enviaremos um orçamento personalizado em breve.');
+                this.reset();
+            });
+
+            // Modal functionality
+            const modal = document.getElementById('gallery-modal');
+            const modalClose = document.querySelector('.modal-close');
+            
+            function openModal(item) {
+                document.getElementById('modal-image').src = item.image;
+                document.getElementById('modal-title').textContent = item.title;
+                document.getElementById('modal-artist').textContent = `Artista: ${item.artist}`;
+                document.getElementById('modal-style').textContent = `Estilo: ${item.style}`;
+                modal.style.display = 'flex';
+            }
+            
+            modalClose.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
