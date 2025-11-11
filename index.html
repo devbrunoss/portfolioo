@@ -4,7 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruno S. | Dev & Designer - Sites e Sistemas</title>
+    <title>Bruno S. | Criação de Sites Profissionais e Design Moderno</title>
+
+
+    <!-- Meta tags de compartilhamento -->
+<meta property="og:title" content="Bruno S. | Dev & Designer - Sites e Sistemas">
+<meta property="og:description" content="Crio sites modernos e sistemas que unem design e performance.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://devbrunoss.github.io/portfolioo/">
+
+<!-- IMPORTANTE: NÃO COLOCAR imagem -->
+<meta property="og:image" content="">
+<meta property="twitter:card" content="summary">
+<meta property="twitter:title" content="Bruno S. | Dev & Designer - Sites e Sistemas">
+<meta property="twitter:description" content="Crio sites modernos e sistemas que unem design e performance.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -216,11 +230,28 @@
             left: 100%;
         }
 
-        .btn-primary {
+       .btn-primary {
     background: var(--destaque);
     color: var(--branco);
     box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
     border: none;
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+    }
+}
+
+.btn-primary:hover {
+    animation: none; /* Para o pulsar no hover */
+    background: var(--destaque-suave);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(99, 102, 241, 0.8);
 }
 
 .btn-primary:hover {
@@ -449,16 +480,14 @@
         }
 
         .portfolio-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            background: var(--cinza-escuro);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-        }
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--cinza-escuro);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    container-type: inline-size;
+}
 
         .portfolio-item:hover {
             transform: scale(1.05);
@@ -912,14 +941,17 @@
         }
 
         .project-info {
-            padding: 20px;
-            flex: 1;
-            height: 30%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 150px;
-        }
+    padding: 20px;
+    flex: 1;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 150px;
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
 
         .project-category {
             font-size: 0.8rem;
@@ -977,9 +1009,14 @@
             opacity: 1;
         }
 
-        .portfolio-item:hover .project-thumbnail img {
-            transform: scale(1.1);
-        }
+       .portfolio-item:hover .project-thumbnail img {
+    transform: scale(1.05);
+    filter: brightness(0.7); /* Escurece a imagem */
+}
+
+.portfolio-item:hover .project-info {
+    transform: translateY(-5px); /* Sobe o título */
+}
 
         /* Garantir que todas as cards tenham o mesmo tamanho */
         .portfolio-item {
@@ -1515,10 +1552,90 @@
     letter-spacing: 1px;
     font-weight: 600;
 }
+
+/* Processo de Trabalho */
+.processo {
+    background: linear-gradient(135deg, var(--preto-suave) 0%, var(--preto) 100%);
+}
+
+.processo-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.processo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.processo-item {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.processo-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--destaque);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+.processo-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.processo-item h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--branco);
+}
+
+.processo-item p {
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.processo-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--destaque);
+    opacity: 0.5;
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--destaque), var(--destaque-suave));
+    z-index: 9999;
+    transition: width 0.3s ease;
+}
     </style>
 </head>
 
 <body>
+    <!-- Progress Bar -->
+<div class="scroll-progress"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
@@ -1636,6 +1753,44 @@
             </div>
         </div>
     </section>
+
+    <!-- Processo de Trabalho -->
+<section class="processo" id="processo">
+    <div class="container">
+        <h2>Como Trabalho</h2>
+        <p class="processo-subtitle">Um método claro e organizado para garantir resultados excepcionais</p>
+        
+        <div class="processo-grid">
+            <div class="processo-item hidden">
+                <div class="processo-icon">💡</div>
+                <h3>Planejamento</h3>
+                <p>Análise de requisitos, definição de escopo e estratégia para seu projeto</p>
+                <span class="processo-number">01</span>
+            </div>
+            
+            <div class="processo-item hidden">
+                <div class="processo-icon">🎨</div>
+                <h3>Design</h3>
+                <p>Criação de protótipos e interface visual alinhada com sua identidade</p>
+                <span class="processo-number">02</span>
+            </div>
+            
+            <div class="processo-item hidden">
+                <div class="processo-icon">💻</div>
+                <h3>Desenvolvimento</h3>
+                <p>Implementação com código limpo, responsivo e otimizado</p>
+                <span class="processo-number">03</span>
+            </div>
+            
+            <div class="processo-item hidden">
+                <div class="processo-icon">🚀</div>
+                <h3>Entrega</h3>
+                <p>Revisão, testes e lançamento com suporte pós-entrega</p>
+                <span class="processo-number">04</span>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Serviços -->
     <section class="servicos" id="servicos">
@@ -2099,12 +2254,11 @@
     <section class="contato" id="contato">
         <div class="container">
             <h2>Pronto pra criar algo incrível?</h2>
-            <p>Vamos transformar sua ideia em realidade. Entre em contato e vamos conversar sobre seu projeto.</p>
+            <p>Vamos construir seu novo site hoje. Entre em contato e vamos conversar sobre seu projeto.</p>
             <a href="https://wa.me/5512981282456?text=Olá! Gostaria de solicitar um orçamento para um site."
                 class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i>
-                Chamar no WhatsApp
-            </a>
+Quero meu orçamento            </a>
         </div>
     </section>
 
@@ -2130,6 +2284,8 @@
                     </li>
                     <li><a href="#sobre" style="color: var(--branco); text-decoration: none; opacity: 0.8;">Sobre</a>
                     </li>
+                     <li><a href="#processo"
+                            style="color: var(--branco); text-decoration: none; opacity: 0.8;">Processo</a></li>
                     <li><a href="#tecnologias"
                             style="color: var(--branco); text-decoration: none; opacity: 0.8;">Tecnologias</a></li>
                     <li><a href="#servicos"
@@ -2150,7 +2306,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Bruno S. | Dev & Designer. Todos os direitos reservados.</p>
+            <p>Desenvolvido por Bruno S.</p>
         </div>
     </footer>
 
@@ -2495,6 +2651,15 @@
                 }
             });
         });
+
+        // Scroll Progress Bar
+const progressBar = document.querySelector('.scroll-progress');
+
+window.addEventListener('scroll', function() {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    progressBar.style.width = scrolled + '%';
+});
     </script>
     <!-- Modal Quick View -->
     <div id="project-modal" class="modal">
