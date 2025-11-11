@@ -651,10 +651,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
             margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--dourado) 0%, var(--ciano) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--destaque);          
         }
 
         .social-links {
@@ -926,7 +923,7 @@
 
         .project-category {
             font-size: 0.8rem;
-            color: var(--dourado);
+            color: var(--destaque);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 8px;
@@ -1176,16 +1173,6 @@
             gap: 25px;
         }
 
-        .project-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            margin: 10px 0;
-            background: linear-gradient(135deg, var(--dourado) 0%, var(--ciano) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .project-meta {
             display: flex;
             gap: 20px;
@@ -1325,10 +1312,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2rem;
             margin: 10px 0;
-            background: linear-gradient(135deg, var(--dourado) 0%, var(--ciano) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff;
         }
 
         .project-meta {
@@ -1468,6 +1452,69 @@
             color: var(--preto);
             transform: translateY(-2px);
         }
+
+        /* RESPONSIVIDADE DO MODAL - Imagens */
+@media (max-width: 768px) {
+    .modal-project {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .modal-gallery {
+        order: -1; /* Coloca as imagens primeiro no mobile */
+    }
+    
+    .main-image {
+        height: 250px; /* Altura menor no mobile */
+    }
+    
+    .image-thumbnails {
+        justify-content: center; /* Centraliza as miniaturas */
+        flex-wrap: wrap; /* Quebra linha se necessário */
+    }
+    
+    .image-thumbnails img {
+        width: 70px;
+        height: 50px;
+    }
+    
+    .modal-content {
+        margin: 20px 15px; /* Menor margem lateral */
+        max-width: calc(100% - 30px); /* Garante que não ultrapasse */
+    }
+    
+    .modal-body {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-image {
+        height: 200px; /* Ainda menor em telas pequenas */
+    }
+    
+    .modal-content {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+    }
+    
+    .modal-body {
+        padding: 20px 15px;
+    }
+    
+    .project-header h2 {
+        font-size: 1.6rem; /* Título menor no mobile */
+    }
+}
+
+/* NO MODAL - Categoria */
+.project-header .project-category {
+    color: var(--destaque); /* Azul na categoria também */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
     </style>
 </head>
 
@@ -2065,7 +2112,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-info">
-                <h3>Bruno S. | Dev & Designer</h3>
+                <h3 style="color: var(--destaque-suave)">Bruno S. | Dev & Designer</h3>
                 <p>Criando experiências digitais memoráveis através de código e design.</p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/bnrsantoss_" class="social-link"><i
